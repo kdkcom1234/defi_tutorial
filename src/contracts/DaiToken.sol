@@ -25,6 +25,7 @@ contract DaiToken {
         balanceOf[msg.sender] = totalSupply;
     }
 
+    // 전송: 토큰 컨트랙트에서 토큰 컨트랙트의 스토리지에 해당 주소의 밸런스를 증가시키는 것
     function transfer(address _to, uint256 _value) public returns (bool success) {
         require(balanceOf[msg.sender] >= _value);
         balanceOf[msg.sender] -= _value;
@@ -33,6 +34,7 @@ contract DaiToken {
         return true;
     }
 
+    // 승인: 토큰 컨트랙트에서 토큰 컨트랙트의 스토리지에 송/수신자에 허용 수량을 등록하는 것
     function approve(address _spender, uint256 _value) public returns (bool success) {
         allowance[msg.sender][_spender] = _value;
         emit Approval(msg.sender, _spender, _value);

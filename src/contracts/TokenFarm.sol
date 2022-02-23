@@ -51,8 +51,9 @@ contract TokenFarm {
       // Require amount greater than 0
       require(balance > 0, "staking balance cannot be 0");
 
-      // Transfer Mock Dai tokens to this contract for staking
+      // Transfer Mock Dai tokens to investor for unstaking
       daiToken.transfer(msg.sender, balance);
+
 
       // Reset staking balance
       stakingBalance[msg.sender] = 0;
